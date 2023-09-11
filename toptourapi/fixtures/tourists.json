@@ -1,0 +1,20 @@
+[
+    {
+        "model": "toptourapi.tourist",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "bio": "Hi I am Logan",
+            "profile_image": "https://example.com/photo1.jpg"
+        }
+    },
+    {
+        "model": "toptourapi.tourist",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "bio": "Hi i am Johnny",
+            "profile_image": "https://example.com/photo1.jpg"
+        }
+    }
+]

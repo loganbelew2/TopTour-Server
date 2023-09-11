@@ -1,0 +1,30 @@
+[
+    {
+        "model": "toptourapi.attraction",
+        "pk": 1,
+        "fields": {
+            "name": "Museum of Art",
+            "address": "123 Main Street",
+            "coordinates": "40.123456,-74.654321",
+            "icon_url": "https://example.com/icon1.jpg",
+            "rating": 4.5,
+            "total_ratings": 100,
+            "photo_url": "https://example.com/photo1.jpg",
+            "price_level": 2
+        }
+    },
+    {
+        "model": "toptourapi.attraction",
+        "pk": 2,
+        "fields": {
+            "name": "Historic Park",
+            "address": "456 Park Avenue",
+            "coordinates": "40.987654,-74.123456",
+            "icon_url": "https://example.com/icon2.jpg",
+            "rating": 4.0,
+            "total_ratings": 50,
+            "photo_url": "https://example.com/photo2.jpg",
+            "price_level": 1
+        }
+    }
+]

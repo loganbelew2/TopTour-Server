@@ -1,0 +1,24 @@
+[
+    {
+        "model": "toptourapi.post",
+        "pk": 1,
+        "fields": {
+            "tourist": 1,
+            "attraction": 1,
+            "category": 1,
+            "review": "A great visit to the museum!",
+            "timestamp": "2023-09-01T10:00:00Z"
+        }
+    },
+    {
+        "model": "toptourapi.post",
+        "pk": 2,
+        "fields": {
+            "tourist": 2,
+            "attraction": 2,
+            "category": 2,
+            "review": "Enjoyed the historic park.",
+            "timestamp": "2023-09-02T11:00:00Z"
+        }
+    }
+]

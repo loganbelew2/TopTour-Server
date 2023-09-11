@@ -1,0 +1,16 @@
+[
+    {
+        "model": "toptourapi.category",
+        "pk": 1,
+        "fields": {
+            "name": "Historical Site"
+        }
+    },
+    {
+        "model": "toptourapi.category",
+        "pk": 2,
+        "fields": {
+            "name": "Fun"
+        }
+    }
+]
