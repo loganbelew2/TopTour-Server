@@ -1,5 +1,5 @@
 #!/bin/bash
-#comment
+
 rm db.sqlite3
 rm -rf ./toptourapi/migrations
 python3 manage.py migrate
