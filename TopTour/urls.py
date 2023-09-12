@@ -2,10 +2,10 @@ from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
 from rest_framework import routers
-from toptourapi.views import register_user, login_user
+from toptourapi.views import register_user, login_user, AttractionView
 
 router = routers.DefaultRouter(trailing_slash=False)
-
+router.register(r'attractions', AttractionView, 'attraction')
 urlpatterns = [
     path('register', register_user),
     path('login', login_user),
