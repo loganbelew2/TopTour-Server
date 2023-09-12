@@ -16,7 +16,7 @@ def login_user(request):
     '''
     username = request.data['username']
     password = request.data['password']
-
+    print(username, password)
     # Use the built-in authenticate method to verify
     # authenticate returns the user object or None if no user is found
     authenticated_user = authenticate(username=username, password=password)
@@ -49,7 +49,8 @@ def register_user(request):
         username=request.data['username'],
         password=request.data['password'],
         first_name=request.data['first_name'],
-        last_name=request.data['last_name']
+        last_name=request.data['last_name'],
+        email = request.data['email']
     )
 
     # Now save the extra info in the table
