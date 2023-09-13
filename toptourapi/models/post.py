@@ -7,7 +7,7 @@ class Post(models.Model):
     attraction = models.ForeignKey(Attraction, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     review = models.TextField()
-    timestamp = models.DateTimeField()
+    time_stamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Post {self.id}"

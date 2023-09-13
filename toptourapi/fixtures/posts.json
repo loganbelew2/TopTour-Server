@@ -7,7 +7,7 @@
             "attraction": 1,
             "category": 1,
             "review": "A great visit to the museum!",
-            "timestamp": "2023-09-01T10:00:00Z"
+            "time_stamp": "2023-09-01T10:00:00Z"
         }
     },
     {
@@ -18,7 +18,7 @@
             "attraction": 2,
             "category": 2,
             "review": "Enjoyed the historic park.",
-            "timestamp": "2023-09-02T11:00:00Z"
+            "time_stamp": "2023-09-02T11:00:00Z"
         }
     }
 ]
