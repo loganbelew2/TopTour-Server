@@ -20,6 +20,7 @@ class PostView(ViewSet):
         post.attraction = Attraction.objects.get(pk = request.data['attraction'])
         post.category = Category.objects.get(pk = request.data['category'])
         post.review = request.data['review']
+        post.name = request.data['name']
         post.save()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
     
@@ -33,7 +34,8 @@ class PostView(ViewSet):
             tourist = Tourist.objects.get(user = request.auth.user),
             attraction = Attraction.objects.get(pk = request.data['attraction']),
             category = Category.objects.get(pk = request.data['category']),
-            review = request.data['review']
+            review = request.data['review'],
+            name = request.data['name']
             )
         serializer = PostSerializer(post)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -43,5 +45,5 @@ class PostSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Post
-        fields = ('id', 'tourist', 'attraction', 'category', 'review', 'time_stamp')
-        depth = 1
+        fields = ('id', 'tourist', 'attraction', 'category', 'review', 'time_stamp', 'name')
+        depth = 2
