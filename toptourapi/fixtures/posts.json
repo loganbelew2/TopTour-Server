@@ -3,6 +3,7 @@
         "model": "toptourapi.post",
         "pk": 1,
         "fields": {
+            "name": "Awesome",
             "tourist": 1,
             "attraction": 1,
             "category": 1,
@@ -14,6 +15,7 @@
         "model": "toptourapi.post",
         "pk": 2,
         "fields": {
+            "name": "Great visit",
             "tourist": 2,
             "attraction": 2,
             "category": 2,

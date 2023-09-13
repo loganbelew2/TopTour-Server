@@ -32,5 +32,5 @@ class PostSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Tourist
-        fields = ('id', 'user', 'bio', 'profile_image')
+        fields = ('id', 'user', 'bio', 'profile_image', 'full_name')
         depth = 1
