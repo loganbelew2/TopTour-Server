@@ -4,11 +4,16 @@ from rest_framework import serializers, status
 from toptourapi.models import Comment, Tourist, Post
 
 class CommentView(ViewSet):
-    def list(self,__):
-        comments = Comment.objects.all()
-        serializer = AttractionSerializer(comments, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    
+    def list(self, request):
+       comments = Comment.objects.all()
+       if "post" in request.query_params:
+            condition = request.query_params.get('post')
+            filtered_comments = comments.filter(post__id = condition)
+            serializer = AttractionSerializer(filtered_comments, many=True)
+       else:
+            serializer = AttractionSerializer(comments, many=True)
+        
+       return Response(serializer.data, status=status.HTTP_200_OK)
     def retrieve(self,__, pk):
         comment = Comment.objects.get(pk = pk)
         serializer = AttractionSerializer(comment)
