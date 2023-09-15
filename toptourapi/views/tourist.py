@@ -6,12 +6,12 @@ from toptourapi.models import Tourist, Attraction, Category
 class TouristView(ViewSet):
     def list(self,__):
         tourists = Tourist.objects.all()
-        serializer = PostSerializer(tourists, many=True)
+        serializer = TouristSerializer(tourists, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     def retrieve(self,__, pk):
         tourist = Tourist.objects.get(pk = pk)
-        serializer = PostSerializer(tourist)
+        serializer = TouristSerializer(tourist)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     def update(self, request, pk):
@@ -27,7 +27,7 @@ class TouristView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
     
 
-class PostSerializer(serializers.ModelSerializer):
+class TouristSerializer(serializers.ModelSerializer):
     """JSON serializer for game types
     """
     class Meta:

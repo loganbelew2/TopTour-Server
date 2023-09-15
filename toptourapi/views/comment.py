@@ -9,14 +9,14 @@ class CommentView(ViewSet):
        if "post" in request.query_params:
             condition = request.query_params.get('post')
             filtered_comments = comments.filter(post__id = condition)
-            serializer = AttractionSerializer(filtered_comments, many=True)
+            serializer = CommentSerializer(filtered_comments, many=True)
        else:
-            serializer = AttractionSerializer(comments, many=True)
+            serializer = CommentSerializer(comments, many=True)
         
        return Response(serializer.data, status=status.HTTP_200_OK)
     def retrieve(self,__, pk):
         comment = Comment.objects.get(pk = pk)
-        serializer = AttractionSerializer(comment)
+        serializer = CommentSerializer(comment)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     def destroy(self,__, pk):
@@ -30,13 +30,19 @@ class CommentView(ViewSet):
             tourist = Tourist.objects.get(user = request.auth.user),
             post = Post.objects.get(pk = request.data['post'])
         )
-        serializer = AttractionSerializer(comment)
+        serializer = CommentSerializer(comment)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-class AttractionSerializer(serializers.ModelSerializer):
+    def update(self, request, pk):
+        comment = Comment.objects.get(pk=pk)
+        serializer = CommentSerializer(comment, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class CommentSerializer(serializers.ModelSerializer):
     """JSON serializer for game types
     """
     class Meta:
         model = Comment
         fields = ('id', 'tourist', 'post', 'content', 'time_stamp')
-        depth = 1
+        depth = 2
