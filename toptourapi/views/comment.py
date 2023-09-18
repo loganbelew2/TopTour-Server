@@ -7,11 +7,12 @@ class CommentView(ViewSet):
     def list(self, request):
        comments = Comment.objects.all()
        if "post" in request.query_params:
-            condition = request.query_params.get('post')
-            filtered_comments = comments.filter(post__id = condition)
-            serializer = CommentSerializer(filtered_comments, many=True)
-       else:
-            serializer = CommentSerializer(comments, many=True)
+            
+            comments = comments.filter(post_id = request.query_params['post'])  
+       elif "user" in request.query_params:
+            comments = comments.filter(tourist_id = request.query_params['user'])
+
+       serializer = CommentSerializer(comments, many=True)
         
        return Response(serializer.data, status=status.HTTP_200_OK)
     def retrieve(self,__, pk):

@@ -2,13 +2,14 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from toptourapi.models import Tourist, Attraction, Category
-
+from django.contrib.auth.models import User
 class TouristView(ViewSet):
     def list(self,__):
         tourists = Tourist.objects.all()
         serializer = TouristSerializer(tourists, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    
+
+        
     def retrieve(self,__, pk):
         tourist = Tourist.objects.get(pk = pk)
         serializer = TouristSerializer(tourist)
@@ -23,7 +24,9 @@ class TouristView(ViewSet):
     
     def destroy(self,__, pk):
         tourist = Tourist.objects.get(pk = pk)
+        user = User.objects.get(pk = pk)
         tourist.delete()
+        user.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
     
 
