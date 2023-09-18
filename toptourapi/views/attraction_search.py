@@ -33,3 +33,4 @@ class AttractionSearchView(ViewSet):
 class TouristAttractionSerializer(serializers.Serializer):
      name = serializers.CharField()
      formatted_address = serializers.CharField()
+     place_id = serializers.CharField()
