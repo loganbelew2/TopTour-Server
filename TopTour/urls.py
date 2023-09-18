@@ -14,7 +14,8 @@ router.register(r'categories', CategoryView, 'category')
 router.register(r'comments', CommentView, 'comment')
 router.register(r'posts', PostView, 'post')
 router.register(r'tourists', TouristView, 'tourist')
-router.register(r'search', AttractionSearchView, 'search')
+router.register(r'attractionSearch', AttractionSearchView, 'search')
+
 urlpatterns = [
     path('register', register_user),
     path('login', login_user),

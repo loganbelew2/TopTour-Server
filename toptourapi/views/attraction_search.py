@@ -11,7 +11,6 @@ class AttractionSearchView(ViewSet):
     def list(self, request):
         query = request.query_params.get('query')
         api_key = settings.GOOGLE_MAPS_API_KEY
-        print(api_key)
         try:
             # Make a request to the Google Places API
             response = requests.get(
