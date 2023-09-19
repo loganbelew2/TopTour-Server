@@ -41,7 +41,6 @@ class AttractionView(ViewSet):
             rating = request.data['rating'],
             total_ratings = request.data['total_ratings'],
             photo_url = request.data['photo_url'],
-            price_level = request.data['price_level']
             )
         serializer = AttractionSerializer(attraction)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -51,5 +50,5 @@ class AttractionSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Attraction
-        fields = ('id', 'name', 'address', 'coordinates', 'icon_url', 'rating', 'total_ratings', 'photo_url', 'price_level')
+        fields = ('id', 'name', 'address', 'coordinates', 'icon_url', 'rating', 'total_ratings', 'photo_url')
         depth = 1
