@@ -5,7 +5,7 @@ from rest_framework import routers
 from toptourapi.views import (
     register_user, login_user, AttractionView,
     CategoryView, CommentView, PostView, TouristView,
-    AttractionSearchView, AttractionByIdView
+    AttractionSearchView, AttractionByIdView, PhotoView
     )
 
 router = routers.DefaultRouter(trailing_slash=False)
@@ -16,7 +16,7 @@ router.register(r'posts', PostView, 'post')
 router.register(r'tourists', TouristView, 'tourist')
 router.register(r'attractionSearch', AttractionSearchView, 'search')
 router.register(r'attractionById', AttractionByIdView, 'attract')
-
+router.register(r'photos', PhotoView, 'photo' )
 urlpatterns = [
     path('register', register_user),
     path('login', login_user),

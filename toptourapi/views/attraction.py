@@ -4,9 +4,13 @@ from rest_framework import serializers, status
 from toptourapi.models import Attraction
 
 class AttractionView(ViewSet):
-    def list(self,__):
-        attractions = Attraction.objects.all()
-        serializer = AttractionSerializer(attractions, many=True)
+    def list(self, request):
+        if 'last' in request.query_params:
+            attractions= Attraction.objects.last()
+            serializer= AttractionSerializer(attractions)
+        else:
+            attractions = Attraction.objects.all()
+            serializer = AttractionSerializer(attractions, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     def retrieve(self,__, pk):
@@ -15,15 +19,13 @@ class AttractionView(ViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     def update(self, request, pk):
-        attraction = Attraction.objects.get(pk = pk)
-        attraction.name = request.data['name']
-        attraction.address = request.data['address']
-        attraction.coordinates = request.data['coordinates']
-        attraction.icon_url = request.data['icon_url']
-        attraction.rating = request.data['rating']
-        attraction.total_ratings = request.data['total_ratings']
-        attraction.photo_url = request.data['photo_url']
-        attraction.price_level = request.data['price_level']
+        attraction = Attraction.objects.get(pk=pk)
+        fields_to_update = ['name', 'address', 'coordinates', 'icon_url', 'rating', 'total_ratings', 'photo_url', 'price_level']
+    
+        for field in fields_to_update:
+            if field in request.data:
+                setattr(attraction, field, request.data[field])
+
         attraction.save()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
     
