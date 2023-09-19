@@ -9,8 +9,7 @@
             "icon_url": "https://example.com/icon1.jpg",
             "rating": 4.5,
             "total_ratings": 100,
-            "photo_url": "https://www.travelandleisure.com/thmb/Om3sth4C6kRWrs2tdci3H0CnuH8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/gallery-uffizi-florence-italy-ONLINEMUSE0320-7c5f3904408c4c8aabd2f15cd6d47a4b.jpg",
-            "price_level": 2
+            "photo_url": "https://www.travelandleisure.com/thmb/Om3sth4C6kRWrs2tdci3H0CnuH8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/gallery-uffizi-florence-italy-ONLINEMUSE0320-7c5f3904408c4c8aabd2f15cd6d47a4b.jpg"
         }
     },
     {
@@ -23,8 +22,7 @@
             "icon_url": "https://example.com/icon2.jpg",
             "rating": 4.0,
             "total_ratings": 50,
-            "photo_url": "https://a.cdn-hotels.com/gdcs/production134/d1365/38243062-1a1f-41f8-a700-cb75ead16e2e.jpg?impolicy=fcrop&w=800&h=533&q=medium",
-            "price_level": 1
+            "photo_url": "https://a.cdn-hotels.com/gdcs/production134/d1365/38243062-1a1f-41f8-a700-cb75ead16e2e.jpg?impolicy=fcrop&w=800&h=533&q=medium"
         }
     }
 ]

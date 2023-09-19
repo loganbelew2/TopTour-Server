@@ -4,8 +4,11 @@ from rest_framework import serializers, status
 from toptourapi.models import Post, Tourist, Attraction, Category
 
 class PostView(ViewSet):
-    def list(self,__):
-        posts = Post.objects.all()
+    def list(self, request):
+        if 'user' in request.query_params:
+            posts = Post.objects.filter(tourist_id = request.query_params['user'])
+        else:
+            posts = Post.objects.all()
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     

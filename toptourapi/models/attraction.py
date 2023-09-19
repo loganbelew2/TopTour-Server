@@ -8,7 +8,6 @@ class Attraction(models.Model):
     rating = models.FloatField()
     total_ratings = models.IntegerField()
     photo_url = models.CharField(max_length=255)
-    price_level = models.IntegerField()
 
     def __str__(self):
         return self.name
