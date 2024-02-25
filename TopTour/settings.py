@@ -24,7 +24,7 @@ SECRET_KEY = os.environ.get('MY_SECRET_KEY')
 
 GOOGLE_MAPS_API_KEY = config("DJANGO_APP_GOOGLE_MAPS_API_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
