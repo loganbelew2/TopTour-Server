@@ -10,6 +10,11 @@ from toptourapi.models import Tourist
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def login_user(request):
+    '''Handles the authentication of a tourist
+
+    Method arguments:
+      request -- The full HTTP request object
+    '''
     username = request.data['username']
     password = request.data['password']
     print(username, password)

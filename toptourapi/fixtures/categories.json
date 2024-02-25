@@ -33,12 +33,5 @@
         "fields": {
             "name": "Natural Parks and Reserve"
         }
-    },
-    {
-        "model": "toptourapi.category",
-        "pk": 6,
-        "fields": {
-            "name": "Museum"
-        }
     }
 ]
